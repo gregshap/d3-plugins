@@ -225,7 +225,7 @@ d3.sankey = function() {
             i;
 
         // Push any overlapping nodes down.
-        nodes.sort(ascendingDepth);
+        nodes.sort(ascendingName);
         for (i = 0; i < n; ++i) {
           node = nodes[i];
           dy = y0 - node.y;
@@ -247,6 +247,10 @@ d3.sankey = function() {
           }
         }
       });
+    }
+
+    function ascendingName(a,b){
+      return a.name > b.name;
     }
 
     function ascendingDepth(a, b) {
